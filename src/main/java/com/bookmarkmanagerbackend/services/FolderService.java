@@ -27,7 +27,11 @@ public class FolderService {
         folderRepository.deleteById(id);
     }
 
-    public List<Folder> findAllByUserUsername(String username){
-        return folderRepository.findAllByUserUsername(username);
+    public List<Folder> findAllByUser(String username) {
+        return folderRepository.findAllByUser(username);
+    }
+
+    public boolean existsByFolderName(String name) {
+        return folderRepository.existsByName(name);
     }
 }

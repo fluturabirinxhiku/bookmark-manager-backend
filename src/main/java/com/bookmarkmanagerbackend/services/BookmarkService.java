@@ -1,6 +1,5 @@
 package com.bookmarkmanagerbackend.services;
 
-
 import com.bookmarkmanagerbackend.exceptions.BookmarkNotFoundException;
 import com.bookmarkmanagerbackend.models.Bookmark;
 import com.bookmarkmanagerbackend.repositories.BookmarkRepository;
@@ -28,12 +27,11 @@ public class BookmarkService {
         bookmarkRepository.deleteById(id);
     }
 
-    public List<Bookmark> findAllByUserUsername(String username) {
-        return bookmarkRepository.findAllByUserUsername(username);
+    public List<Bookmark> findAllByUser(String username) {
+        return bookmarkRepository.findAllByUser(username);
     }
 
-    public List<Bookmark> findAllByUserUsernameAndFolderName(String username, String folder) {
-        return bookmarkRepository.findAllByUserUsernameAndFolderName(username, folder);
+    public List<Bookmark> findAllByUserAndFolder(String username, String folder) {
+        return bookmarkRepository.findAllByUserAndFolder(username, folder);
     }
-
 }
