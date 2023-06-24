@@ -1,5 +1,7 @@
 package com.bookmarkmanagerbackend.models;
 
+import com.bookmarkmanagerbackend.config.FolderDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,6 +24,7 @@ public class Bookmark {
     private User user;
     @ManyToOne
     @JoinColumn(name = "folder_id")
+    @JsonDeserialize(using = FolderDeserializer.class)
     private Folder folder;
 
 }
