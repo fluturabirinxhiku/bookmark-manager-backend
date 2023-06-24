@@ -5,7 +5,6 @@ import com.bookmarkmanagerbackend.models.User;
 import com.bookmarkmanagerbackend.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,14 +41,12 @@ public class UserService implements UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
-    public User findById(Integer id) {
-        return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User with id: " + id + " not found."));
-    }
-
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
     }
 
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
 }
-
 
